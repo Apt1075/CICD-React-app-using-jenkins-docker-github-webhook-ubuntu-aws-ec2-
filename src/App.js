@@ -59,7 +59,8 @@ const Footer = () => (
 export default function App() {
   return (
     <div className="font-sans">
-      <Header fdgdgdfgdfgssss/>
+      <Header />
+       <Headerhjjkhkjhjkh />
       <Slider />
       <About />
       <Contact />
