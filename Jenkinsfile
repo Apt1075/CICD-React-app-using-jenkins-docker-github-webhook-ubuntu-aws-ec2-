@@ -39,9 +39,9 @@ pipeline {
         stage('Send Email Notification') {
             steps {
                 email{
-                    echo 'Sending email notification...'
-                    to "${EMAIL_RECIPIENT}"
-                    subject "React App Deployment Successful"
+                    echo 'Sending email notification...',
+                    to "${EMAIL_RECIPIENT}",
+                    subject "React App Deployment Successful",
                     body "The React application has been successfully deployed and is running on port ${PORT}."
                 }
             }
