@@ -22,8 +22,10 @@ pipeline {
 
         stage('Stop and Remove Existing Container') {
             steps {
-                sh "docker stop ${CONTAINER_NAME} || true",
-                sh "docker rm ${CONTAINER_NAME} || true"
+                sh ```
+                docker stop ${CONTAINER_NAME} || true
+                docker rm ${CONTAINER_NAME} || true
+                ```, 
             }
         }
         stage('Docker Run') {
