@@ -35,7 +35,7 @@ const About = () => (
     <h2 className="text-xl font-semibold mb-2">About This App</h2>
     <p className="text-gray-700 max-w-2xl mx-auto">
       This single-page React application is built by Arpit Kumar to demonstrate a real-world
-      CI/CD pipeline concept using modern DevOps practices. It is suitable for
+      CI/CD pipeline concept using modern DevOps practices.It is suitable for
       interviews and portfolio projects.
     </p>
   </section>
