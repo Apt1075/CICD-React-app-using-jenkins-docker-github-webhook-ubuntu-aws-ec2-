@@ -34,9 +34,7 @@ const About = () => (
   <section className="p-6 text-center" id="about">
     <h2 className="text-xl font-semibold mb-2">About This App</h2>
     <p className="text-gray-700 max-w-2xl mx-auto">
-      This single-page React application is built by Arpit Kumar to demonstrate a real-world
-      CI/CD pipeline concept using modern DevOps practices.It is suitable for
-      interviews and portfolio projects.
+      This project was developed by Arpit Kumar and demonstrates a complete CI/CD pipeline for a React single-page application. GitHub webhooks trigger Jenkins builds, which create Docker images, deploy the application, and send email notifications on build success or failure.
     </p>
   </section>
 );
