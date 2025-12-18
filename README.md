@@ -26,7 +26,7 @@ This application showcases how a modern frontend application can be:
 
 * **Frontend:** React (Create React App)
 * **Version Control:** Git, GitHub
-* **CI/CD:** Jenkins
+* **CI/CD:** Jenkins(Declarative Pipeline)
 * **Containerization:** Docker
 * **Server:** Ubuntu (AWS EC2)
 * **Notifications:** Jenkins Email Notification
