@@ -1,70 +1,159 @@
-# Getting Started with Create React App
+React CI/CD Pipeline with Jenkins & Docker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React Single Page Application (SPA) bootstrapped with Create React App and integrated with a complete CI/CD pipeline using GitHub, Jenkins, and Docker.
 
-## Available Scripts
+The goal of this project is to demonstrate real-world DevOps practices suitable for interviews, portfolios, and production-like workflows.
+
+
+🚀 Project Overview
+
+This application showcases how a modern frontend application can be:
+
+Version controlled using Git & GitHub
+
+Automatically built and deployed using Jenkins
+
+Containerized using Docker
+
+Triggered via GitHub Webhooks
+
+Notified via Email alerts on build success or failure
+
+🛠️ Tech Stack
+
+Frontend: React (Create React App)
+
+Version Control: Git, GitHub
+
+CI/CD: Jenkins
+
+Containerization: Docker
+
+Server: Ubuntu (AWS EC2)
+
+Notifications: Jenkins Email Notification
+
+Java: OpenJDK 21 (for Jenkins)
+
+📂 Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in development mode.
+Open http://localhost:3000
+ to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+npm test
 
-### `npm test`
+Launches the test runner in interactive watch mode.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm run build
 
-### `npm run build`
+Builds the app for production into the build folder with optimized and minified files.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run eject
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+⚠️ One-way operation. Gives full control over configuration (Webpack, Babel, ESLint).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔁 CI/CD Pipeline Flow
 
-### `npm run eject`
+Code Push
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Developer pushes code to GitHub (main branch)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Webhook Trigger
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+GitHub Webhook triggers Jenkins job automatically
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Jenkins Build
 
-## Learn More
+Pulls latest code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Installs dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Builds React application
 
-### Code Splitting
+Docker Image Creation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Jenkins builds a Docker image for the React app
 
-### Analyzing the Bundle Size
+Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Docker container is deployed on the server
 
-### Making a Progressive Web App
+Notifications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Email notification sent on success or failure
 
-### Advanced Configuration
+🧱 Jenkins & Docker Setup (Ubuntu)
+Install Docker
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install Java (Required for Jenkins)
+sudo apt update
+sudo apt install openjdk-21-jdk -y
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Install Jenkins
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 
-### `npm run build` fails to minify
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+
+Allow Jenkins to Use Docker
+sudo usermod -aG docker jenkins
+sudo reboot
+
+🔐 Server Access (AWS EC2)
+ssh -i "cicd.pem" ubuntu@<your-ec2-ip>
+
+
+📦 Git Repository Setup
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin <git-url>
+git push -u origin main
+
+
+📧 Email Notifications
+
+Jenkins is configured to send email notifications on:
+
+✅ Build Success
+
+❌ Build Failure
+
+This helps in quick monitoring and faster issue resolution.
+
+👨‍💻 Author
+
+Arpit Kumar
+
+This project was developed by Arpit Kumar to demonstrate a complete CI/CD pipeline for a React Single Page Application using GitHub Webhooks, Jenkins, Docker, and Email Notifications.
+
+It is designed to reflect real-world DevOps workflows and is suitable for interviews and portfolio showcase.
+
+
+📚 Learn More
+
+Create React App Docs: https://facebook.github.io/create-react-app/docs/getting-started
+
+React Docs: https://reactjs.org/
+
+Jenkins Docs: https://www.jenkins.io/doc/
+
+Docker Docs: https://docs.docker.com/
