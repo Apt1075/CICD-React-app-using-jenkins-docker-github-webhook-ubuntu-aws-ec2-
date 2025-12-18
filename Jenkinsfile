@@ -4,7 +4,7 @@ pipeline {
     environment {
         CONTAINER_NAME = "reacrt-app-container"
         IMAGE_NAME = "react-app-image"
-        EMAIL_RECIPIENT = "aws.arpit25@gmail.com"
+        // EMAIL_RECIPIENT = "aws.arpit25@gmail.com"
         PORT = "3000"
     }
 
@@ -36,15 +36,15 @@ pipeline {
             }
         }
 
-        stage('Send Email Notification') {
-            steps {
-                email{
-                    echo 'Sending email notification...',
-                    to "${EMAIL_RECIPIENT}",
-                    subject "React App Deployment Successful",
-                    body "The React application has been successfully deployed and is running on port ${PORT}."
-                }
-            }
-        }
+        // stage('Send Email Notification') {
+        //     steps {
+        //         email{
+        //             echo 'Sending email notification...',
+        //             to "${EMAIL_RECIPIENT}",
+        //             subject "React App Deployment Successful",
+        //             body "The React application has been successfully deployed and is running on port ${PORT}."
+        //         }
+        //     }
+        // }
     }
 }
