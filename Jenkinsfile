@@ -22,7 +22,6 @@ pipeline {
 
         stage('Stop and Remove Existing Container') {
             steps {
-                echo 'Stopping and removing existing container...',
                 sh "docker stop ${CONTAINER_NAME} || true",
                 sh "docker rm ${CONTAINER_NAME} || true"
             }
