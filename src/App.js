@@ -44,7 +44,7 @@ const About = () => (
 // Contact Component
 const Contact = () => (
   <section className="bg-gray-100 p-6 text-center" id="contact">
-    <h2 className="text-xl font-semibold mb-2">Contact</h2>
+    <h2 className="text-xl font-semibold mb-2">contact</h2>
     <p className="text-gray-700">📧 Email: aws.arpit25@gmail.com</p>
     <p className="text-gray-700">📞 Phone: +91 8009569030</p>
   </section>
