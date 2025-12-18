@@ -11,27 +11,24 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Clone Repository...'
                 git branch: 'main', url: 'https://github.com/Apt1075/CICD-React-app-using-jenkins-docker-github-webhook-ubuntu-aws-ec2-.git'
             }
         }
         stage('Build Docker Image') {
             steps {
-                echo 'Building Docker Image...'
                 sh "docker build -t ${IMAGE_NAME} ."
             }
         }
 
         stage('Stop and Remove Existing Container') {
             steps {
-                echo 'Stopping and removing existing container...'
-                sh "docker stop ${CONTAINER_NAME} || true"
+                echo 'Stopping and removing existing container...',
+                sh "docker stop ${CONTAINER_NAME} || true",
                 sh "docker rm ${CONTAINER_NAME} || true"
             }
         }
         stage('Docker Run') {
             steps {
-                echo 'Deploying...'
                 sh "docker run -d -p ${PORT}:${PORT} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
             }
         }
